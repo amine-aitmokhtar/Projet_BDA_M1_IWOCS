@@ -5,74 +5,14 @@ INSERT INTO Matieres (matiere_nom) VALUES ('Algo');                  -- Ajoute l
 INSERT INTO Matieres (matiere_nom) VALUES ('Concepts Informatique'); -- Ajoute la matière Concepts Informatique
 COMMIT;  -- Valide toutes les insertions effectuées
 
--- Etudiant 1
-INSERT INTO etudiant
-VALUES (Etudiant_type(
-    '2024001',
-    'Martin',
-    'Pierre',
-    TO_DATE('2001-01-01', 'YYYY-MM-DD'),
-    'martin.pierre@example.com',
-    '0601020304',
-    'Première Inscription',
-    matiere_list(
-        Matiere_Inscrit('Programmation'),
-        Matiere_Inscrit('Linux'),
-        Matiere_Inscrit('Algèbre'),
-        Matiere_Inscrit('Anglais')
-    ),
-    groupe_list(
-        (SELECT REF(g) FROM groupe g WHERE g.matiere = 'Programmation' AND g.type_group = 'TP' AND g.num_groupe =2),
-        (SELECT REF(g) FROM groupe g WHERE g.matiere = 'Linux' AND g.type_group = 'TP' AND g.num_groupe =2),
-        (SELECT REF(g) FROM groupe g WHERE g.matiere = 'Algèbre' AND g.type_group = 'CM' AND g.num_groupe =0),
-        (SELECT REF(g) FROM groupe g WHERE g.matiere = 'Anglais' AND g.type_group = 'TD' AND g.num_groupe =3)
-    )
-));
-
-
 -- Insertion des étudiants dans la table etudiant avec des données détaillées
-INSERT INTO etudiant
-VALUES (Etudiant_type(
-        null,                        -- Matricule vide, généré automatiquement
-        'Abdallah',                  -- Nom de l'étudiant
-        'Abderraouf',                -- Prénom de l'étudiant
-        TO_DATE('2001-12-18', 'YYYY-MM-DD'),  -- Date de naissance
-        'Abderraouf.Abdallah@example.com',    -- Adresse email
-        '0796020304',                -- Numéro de téléphone
-        'Première Inscription',      -- Type d'inscription
-        matiere_list(                -- Liste des matières inscrites
-                Matiere_Inscrit('Algo')
-        ),
-        groupe_list()                -- Liste vide des groupes inscrits (initialement)
-        ));
-COMMIT;  -- Valide toutes les insertions effectuées
-
--- Insertion d'un autre étudiant
-INSERT INTO etudiant
-VALUES (Etudiant_type(
-        null,                        -- Matricule vide, généré automatiquement
-        'Kerrouche',                 -- Nom
-        'Wissam',                    -- Prénom
-        TO_DATE('2002-10-30', 'YYYY-MM-DD'),  -- Date de naissance
-        'Wissam.Kerrouche@example.com',       -- Email
-        '0704020304',                -- Téléphone
-        'Première Inscription',      -- Type d'inscription
-        matiere_list(                -- Liste des matières inscrites
-                Matiere_Inscrit('Algèbre'),
-                Matiere_Inscrit('Analyse')
-        ),
-        groupe_list()                -- Liste des groupes inscrits
-        ));
-COMMIT;  -- Valide toutes les insertions effectuées
-
--- Insertion d'un autre étudiant
 INSERT INTO etudiant
 VALUES (Etudiant_type(
         null,                        -- Matricule vide, généré automatiquement
         'Ait mokhtar',               -- Nom
         'Amine',                     -- Prénom
         TO_DATE('2002-12-08', 'YYYY-MM-DD'),  -- Date de naissance
-        'Amine.Aitmokhtar@example.com',       -- Email
+        'Amine.Aitmokhtar@univ-lehavre.fr',       -- Email
         '0704026304',                -- Téléphone
         'Première Inscription',      -- Type d'inscription
         matiere_list(                -- Liste des matières inscrites
@@ -83,22 +23,20 @@ VALUES (Etudiant_type(
         ));
 COMMIT;  -- Valide toutes les insertions effectuées
 
-
 -- Insertion d'un autre étudiant
 INSERT INTO etudiant
 VALUES (Etudiant_type(
         null,                        -- Matricule vide, généré automatiquement
-        'Abrous',                    -- Nom
-        'Celia',                     -- Prénom
-        TO_DATE('2002-02-04', 'YYYY-MM-DD'),  -- Date de naissance
-        'Celia.Abrous@example.com',           -- Email
-        '0742026304',                -- Téléphone
+        'Abdallah',                  -- Nom de l'étudiant
+        'Abderraouf',                -- Prénom de l'étudiant
+        TO_DATE('2001-12-18', 'YYYY-MM-DD'),  -- Date de naissance
+        'Abderraouf.Abdallah@univ-lehavre.fr',    -- Adresse email
+        '0796020304',                -- Numéro de téléphone
         'Première Inscription',      -- Type d'inscription
         matiere_list(                -- Liste des matières inscrites
-                Matiere_Inscrit('Algo'),
-                Matiere_Inscrit('Algèbre')
+                Matiere_Inscrit('Algo')
         ),
-        groupe_list()                -- Liste des groupes inscrits
+        groupe_list()                -- Liste vide des groupes inscrits (initialement)
         ));
 COMMIT;  -- Valide toutes les insertions effectuées
 
